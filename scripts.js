@@ -47,11 +47,8 @@
 
         $('.modal').on('shown.bs.modal', function (e) {
             $(this).removeClass('right').removeClass('left');
-            $('body').css('padding-right', 0);
         }).on('hidden.bs.modal', function (e) {
             $(this).removeClass('right').removeClass('left');
-        }).on('show.bs.modal', function (e) {
-            $('body').css('padding-right', 0);
         });
 
         $("[data-toggle='modal']").each(function (i, item) {
