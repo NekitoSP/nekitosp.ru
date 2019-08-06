@@ -1,0 +1,73 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootstrap/scss/bootstrap-grid.scss";
+
+// Respond above.
+@mixin respond-above($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// Respond below.
+@mixin respond-below($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// Respond between
+@mixin respond-between($breakpoint-min, $breakpoint-max) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($grid-breakpoints, $breakpoint-min) and map-has-key($grid-breakpoints, $breakpoint-max) {
+    // Get the breakpoint value.
+    $breakpoint-value-min: map-get($grid-breakpoints, $breakpoint-min);
+    $breakpoint-value-max: map-get($grid-breakpoints, $breakpoint-max);
+
+    // Write the media query.
+    @media (min-width: $breakpoint-value-min) and (max-width: $breakpoint-value-max) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint-min} or #{$breakpoint-max}.';
+  }
+}
+
+%align-self-end {
+  @extend .align-self-end;
+}
+%align-self-center {
+  @extend .align-self-center;
+}
+
+@mixin col($breakpoint, $size) {
+  @include media-breakpoint-up($breakpoint) {
+    @include make-col($size);
+  }
+}

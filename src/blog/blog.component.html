@@ -1,0 +1,138 @@
+<div class="dark-container bg-container">
+    <div class="me">
+        <div class="me__wrapper">
+            <h1 class="me__name">Nikita Permin</h1>
+            <div class="me__position">
+                Senior <s>Pomidor</s> Developer
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="light-container">
+    <div class="mt-3">
+        <div class="about">
+            <div class="about__item about-item">
+                <h2 class="about-item__header">
+                    Professional info
+                </h2>
+                <div class="about-item__content-row professional-info">
+                    <div class="professional-info__avatar">
+                        <img src="/assets/photo.jpg" alt="Nikita Permin" class="avatar">
+                    </div>
+                    <div class="professional-info__text">
+                        <markdown [data]="professionalInfo"></markdown>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about__separator">
+                <hr>
+            </div>
+
+            <div class="about__item about-item">
+                <h2 class="about-item__header">Skills</h2>
+                <div class="about-item__content-wrap">
+
+                    <div class="skill-item" *ngFor="let skill of skills">
+                        <h5 class="skill-item__header">
+                            {{ skill.title }}
+                        </h5>
+                        <div class="skill-item__progress">
+                            <div class="progress">
+                                <div class="progress-bar" [ngClass]="getClass(skill)"
+                                    [style.width.%]="skill.percentage">{{skill.valueStr}}</div>
+                                <div class="progress-bar bg-light" [style.width.%]="skill.restPercentage"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item__description">
+                            <markdown [data]="skill.content"></markdown>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about__separator">
+                <hr>
+            </div>
+
+            <div class="about__item about-item">
+                <h2 class="about-item__header">Work experience</h2>
+                <div class="about-item__content">
+                    <div class="work-item" *ngFor="let exp of experience">
+                        <div class="work-item__dates">{{ exp.from }} - {{ exp.to }}</div>
+                        <div class="work-item__content">
+                            <h6 class="work-item__position">{{ exp.position }}
+                                <span class="work-item__firm">@ {{ exp.employer }}</span>
+                            </h6>
+                            <div class="work-item__description">
+                                <markdown [data]="exp.content"></markdown>
+                                <div class="work-item__skills">
+                                    <div class="work-item__skill" *ngFor="let skill of exp.skills">{{ skill }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about__separator">
+                <hr>
+            </div>
+
+            <!--<div class="about__item about-item">
+                <h2 class="about-item__header">Projects</h2>
+                <div class="about-item__content">
+                    <div class="project-item" *ngFor="let item of [1, 2, 3]">
+                        <div class="project-item__image" style="background-image: url('content/1blocker.png')">
+                        </div>
+                        <div class="project-item__content">
+                            <h6 class="project-item__caption">Super App</h6>
+                            <div class="project-item__description">
+                                <p>For kicking your ass</p>
+                                <div class="project-item__skills">
+                                    <div class="project-item__skill">azaza</div>
+                                    <div class="project-item__skill">ololo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+    </div>
+</div>
+
+<div class="dark-container">
+    <div class="contacts">
+        <div class="contacts__wrapper">
+            <div class="about__item contacts-item">
+                <h2 class="contacts-item__header">Have a question?</h2>
+                <div class="contacts-item__content">
+                    <div class="contact">
+                        <a href="mailto:nekitosp@gmail.com" class="contact__link">
+                            <i class="contact-icon contact-icon-envelope"></i>&nbsp;
+                            nekitosp@gmail.com
+                        </a>
+                        <!-- <i class="contact-icon contact-icon-envelope"></i> -->
+                    </div>
+                    <div class="contact">
+                        <a href="https://github.com/nekitosp" class="contact__link">
+                            <i class="contact-icon contact-icon-github"></i>&nbsp;
+                            nekitosp
+                        </a>
+
+                    </div>
+                    <div class="contact">
+                        <a href="https://t.me/nekitosp" class="contact__link">
+                            <i class="contact-icon contact-icon-telegram"></i>&nbsp;
+                            nekitosp
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

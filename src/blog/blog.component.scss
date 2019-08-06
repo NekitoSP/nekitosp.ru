@@ -1,0 +1,405 @@
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import 'node_modules/bootstrap/scss/_variables.scss';
+
+// $fa-font-path : "node_modules/font-awesome/fonts";
+$fa-font-path: 'node_modules/@fortawesome/fontawesome-free-webfonts/webfonts';
+
+@import 'node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+
+@import '../core.scss';
+@import '../utils.scss';
+
+.dark-container {
+    @extend .d-flex;
+    @extend .flex-column;
+    background-color: #0e0e0e; //$background-dark;
+    // background: rgb(0, 0, 0);
+    // background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.light-container {
+    @extend .d-flex;
+    @extend .flex-column;
+    background-color: $background-light;
+}
+
+.bg-dark-gradient {
+    // background: rgb(0, 0, 0);
+    // background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(30, 30, 30, 1) 100%);
+}
+
+.bg-container {
+    background-image: url(/assets/bg.png);
+    background-size: contain; /* <------ */
+    background-repeat: no-repeat;
+    background-position: bottom center; /* optional, center the image */
+}
+
+.me {
+    @extend .d-flex;
+    @extend .flex-row;
+    @extend .align-self-center;
+
+    height: 100vh;
+
+    &__wrapper {
+        @extend .d-flex;
+        @extend .flex-column;
+        @extend .align-self-start;
+        // @extend .pt-5;
+        font-size: 150%;
+        padding-top: 5vh;
+        // padding-bottom: 10vh;
+        //   @include respond-between(xs, md) {
+        //     .me__wrapper {
+        //       @extend %align-self-end;
+        //     }
+        //   }
+
+        @include respond-above(sm) {
+            // .me__wrapper {
+            //   @extend %align-self-center;
+            font-size: 250%;
+            // padding-bottom: 20vh;
+            // }
+        }
+    }
+
+    &__name {
+        @extend .lead;
+        @extend .text-center;
+        @extend .font-weight-light;
+        font-size: 205%;
+        color: $text-dark-accent;
+    }
+    &__position {
+        @extend .text-center;
+        @extend .font-weight-light;
+        color: $text-dark;
+        // @include respond-above(md) {
+        //   font-size: 170%;
+        // }
+        //   font-size: 1.5vw;
+        //   font-size: calc(2vw * 2vh);
+    }
+}
+
+.about {
+    @extend .container;
+    // @extend .row;
+
+    &__item {
+        @extend .d-flex;
+        @extend .flex-column;
+        // @extend .row;
+        // @include make-col-ready();
+        // @include col(xs, 12);
+    }
+    &__separator {
+        @include make-col-ready();
+        @include col(xs, 12);
+    }
+}
+
+.about-item {
+    &__header {
+        @extend .text-center;
+        color: $text-light-accent;
+    }
+    &__content {
+        @include make-col-ready();
+        @include col(xs, 12);
+
+        @extend .d-flex;
+        @extend .flex-column;
+    }
+    &__content-row {
+        // @include make-col-ready();
+        // @include col(xs, 12);
+        @include make-row();
+    }
+    &__content-wrap {
+        @include make-col-ready();
+        @include col(xs, 12);
+
+        @extend .d-flex;
+        @extend .flex-wrap;
+    }
+    &__skills {
+        @include make-col-ready();
+        @include col(xs, 12);
+
+        @extend .d-flex;
+        @extend .flex-nowrap;
+    }
+    &__experience {
+        @include make-col-ready();
+        @include col(xs, 12);
+
+        @extend .d-flex;
+        @extend .flex-column;
+        // @include make-row();
+    }
+}
+
+.skill-item {
+    @include col(xs, 12);
+    @include col(sm, 12);
+    @include col(md, 6);
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .p-2;
+    // @extend .mb-3;
+
+    &__header {
+        // @include make-col-ready();
+        // @include col(xs, 4);
+        // @extend .text-muted;
+    }
+    &__progress {
+        // @include make-col-ready();
+        // @include col(xs, 8);
+        & .progress {
+            border: 1px solid #aaa;
+        }
+    }
+    &__progress-bar-backend,
+    &__progress-bar-frontend {
+        @extend .bg-success;
+    }
+    &__progress-bar-devops {
+        @extend .bg-warning;
+    }
+    &__progress-bar-soft {
+        background-color: $text-dark-accent;
+    }
+}
+
+// .work-experience {
+//     @extend .row;
+//     &__header {
+//         @extend .text-center;
+//     }
+// }
+
+.work-item {
+    @include make-row();
+    @extend .mb-2;
+
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.055);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.055);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.055);
+
+    &__dates {
+        @include make-col-ready();
+        @include col(xs, 12);
+        @include col(sm, 4);
+        @include col(md, 3);
+        @extend .pt-2;
+    }
+
+    &__content {
+        @include make-col-ready();
+        @include col(xs, 12);
+        @include col(sm, 8);
+        @include col(md, 9);
+        @extend .pt-2;
+        @extend .pb-2;
+
+        @include media-breakpoint-up(sm) {
+            border-left: 1px solid #ddd;
+        }
+    }
+
+    &__position {
+        @extend .mb-1;
+    }
+
+    &__firm {
+        @extend .font-weight-light;
+    }
+    &__skill {
+        @extend .badge;
+        @extend .badge-secondary;
+        @extend .mr-1;
+    }
+
+    // &__
+}
+
+.project-item {
+    @include make-row();
+    @extend .mb-2;
+
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.055);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.055);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.055);
+    &__image {
+        @include make-col-ready();
+        @include col(xs, 12);
+        @include col(sm, 12);
+        @include col(md, 3);
+        padding: 0px;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+        min-height: 200px;
+    }
+    &__content {
+        @include make-col-ready();
+        @include col(xs, 12);
+        @include col(sm, 6);
+        @include col(md, 7);
+        @extend .pt-2;
+        @extend .pb-2;
+        border-left: 1px solid #ddd;
+    }
+    // &__skills {
+    //     @include make-col-ready();
+    //     @include col(xs, 12);
+    //     @include col(sm, 6);
+    //     @include col(md, 2);
+    //     @extend .d-flex;
+    //     @extend .flex-column;
+    //     @extend .pt-2;
+    //     @extend .pb-2;
+    //     border-left: 1px solid #ddd;
+    // }
+    &__skill {
+        @extend .badge;
+        @extend .badge-secondary;
+        @extend .mr-1;
+        // @extend .align-self-start;
+    }
+}
+
+.professional-info {
+    @include make-row();
+    &__avatar {
+        @include make-col-ready();
+        @include col(xs, 12);
+        @include col(sm, 6);
+        @include col(md, 5);
+        @include col(lg, 4);
+        // padding-top: 25px;
+    }
+    &__text {
+        @include make-col-ready();
+        @include col(xs, 12);
+        @include col(sm, 6);
+        @include col(md, 7);
+        @include col(lg, 8);
+        @extend .px-3;
+    }
+}
+
+.avatar {
+    border-radius: 5%;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    @include media-breakpoint-up(sm) {
+        float: right;
+        max-height: 200px;
+    }
+    @include media-breakpoint-up(md) {
+        max-height: 250px;
+    }
+}
+
+.contacts {
+    @extend .d-flex;
+    @extend .flex-row;
+    @extend .align-self-center;
+
+    // height: 70vh;
+
+    // @include media-breakpoint-up(sm) {
+    //     height: 50vh;
+    // }
+
+    &__wrapper {
+        @extend .d-flex;
+        @extend .flex-column;
+        @extend .align-self-start;
+        @extend .my-auto;
+        @extend .pt-2;
+        font-size: 150%;
+    }
+}
+
+.contacts-item {
+    &__header {
+        @extend .text-center;
+        color: $text-light-accent;
+
+        @extend .lead;
+        @extend .text-center;
+        @extend .font-weight-light;
+        @extend .px-2;
+        font-size: 205%;
+        color: $text-dark-accent;
+    }
+    &__content {
+        @include col(xs, 12);
+        @extend .d-flex;
+        @extend .flex-column;
+        @extend .justify-content-around;
+        @extend .py-3;
+        @extend .px-2;
+
+        @extend .font-weight-light;
+        color: $text-dark;
+    }
+}
+
+.contact {
+    &__link {
+        color: unset;
+        &:hover {
+            color: $text-dark-accent;
+            text-decoration: none;
+        }
+    }
+}
+
+.contact-icon {
+    @extend %fa-icon;
+    font-size: 1em;
+
+    @include media-breakpoint-up(sm) {
+        font-size: 1em;
+    }
+
+    &-envelope {
+        @extend .fas;
+        // color: #D32E2A;
+
+        &:before {
+            content: fa-content($fa-var-envelope);
+        }
+    }
+
+    &-github {
+        @extend .fab;
+        &:before {
+            content: fa-content($fa-var-github);
+        }
+    }
+
+    &-telegram {
+        @extend .fab;
+        // color: #0088CC;
+        &:before {
+            content: fa-content($fa-var-telegram);
+        }
+    }
+}
